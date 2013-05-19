@@ -1,0 +1,109 @@
+# encoding: utf-8
+
+<%
+  node_title = "aria_the_animation"
+  readable_node_title = "ARIA the Animation"
+
+# All the metadata for the node
+  node_metadata = {
+    "prequel" => [],
+    "sequel" => ["aria_the_natural", "aria_the_arietta", "aria_the_origination"],
+    "author" => "kozue_amano",
+    "studio" => "hal_film_maker",
+    "episode_count" => "13",
+    "average_rating" => "10.0",
+    "featured_image" => '1206487120226-fade.png',
+    "node_title_image" => 'ariatheanimationboxcover.png',
+    "long" => "REALLY LONG METADATA VALUE LALALALAL"
+  }
+
+# User-friendly values, if there are values here, use them over the original metadata
+  readable_node_metadata = {
+    "prequel" => [],
+    "sequel" => ["ARIA the Natural", "ARIA the Arietta", "ARIA the Originiation"],
+    "author" => "Kozue Amano",
+    "studio" =>"Hal Film Maker"
+  }
+
+# TODO: Move this out, but this is a mapping of metadata keys to readable names.
+# If a metadata key isn't in here, we do not show it to the user
+  @readable_node_map = {
+	"prequel" => "Prequel",
+	"sequel" => "Sequel",
+	"author" => "Author",
+	"studio" => "Studio",
+	"episode_count" => "Episode Count",
+	"average_rating" => "Average Rating",
+	"long" => "REALLY LONG METADATA KEY LALALALLAA"
+  }
+%>
+
+<%
+def process_metadata(readable_node_metadata, node_metadata)
+	str = ""
+	str += '<table id="ap-node-metadata-table">'
+
+	node_metadata.each do |metadata_key, metadata|
+		if !metadata.nil? && !metadata.empty? && @readable_node_map.include?(metadata_key)
+			str += '<tr><td class="ap-node-metadata-key">' + @readable_node_map[metadata_key] + "</td>"
+
+			# If we have readable metadata, put as links for now.
+			readable_metadata = readable_node_metadata[metadata_key]
+
+			str += '<td class="ap-node-metadata-value">'
+			if readable_metadata.nil?
+				if metadata.kind_of?(Array)
+					first = metadata.shift
+					str += first
+					metadata.each { |x| str += ", " + x }
+				else
+					str += metadata
+				end
+			else
+				if readable_metadata.kind_of?(Array)
+					readable_metadata_val = readable_metadata.shift
+					metadata_val = metadata.shift
+					str += "<a href=" + metadata_val + ">" + readable_metadata_val + "</a>"
+					readable_metadata.zip(metadata).each do |readable_metadata_val, metadata_val|
+						str += ", <a href=" + metadata_val + ">" + readable_metadata_val + "</a>"
+					end
+				else
+					str += "<a href=" + metadata + ">" + readable_metadata + "</a>"
+				end
+			end
+
+			str += "</td>"
+			str += "</tr>"
+		end
+	end
+
+	str += "</table>"
+	return str
+end
+%>
+
+<script>
+	var featured_image="<%= asset_path(node_metadata["featured_image"]) %>";
+</script>
+
+<div class="grid-container">
+	<div class="grid-80" id="ap-node-title">
+		<%= readable_node_title %>
+	</div>
+	<div class="clearfix"></div>
+	<div class="grid-30">
+		<div class="ap-node-image"><img src="<%= asset_path(node_metadata["node_title_image"]) %>" /></div>
+		<div id="ap-node-metadata">
+			<%= process_metadata(readable_node_metadata, node_metadata).html_safe %>
+		</div>
+	</div>
+	<div class="grid-70">
+		<p>
+		Cupcake ipsum dolor sit amet lemon drops liquorice. Sesame snaps cheesecake applicake biscuit bonbon jelly pudding. Gummi bears cake sweet jelly beans applicake apple pie ice cream. Fruitcake cotton candy chocolate gummies lollipop bonbon jujubes jujubes candy canes. Sweet roll souffle gummies wypas macaroon icing. Bear claw dragee wypas danish halvah gummi bears candy croissant danish. Jelly beans pastry tiramisu bear claw bonbon apple pie sweet sweet roll. Croissant caramels candy canes donut ice cream sweet wafer. Icing cheesecake wypas dessert. Muffin biscuit dragee. Sesame snaps tootsie roll sesame snaps tiramisu gingerbread brownie. Oat cake pudding pudding chocolate bar bear claw tart lemon drops chocolate cake.
+		Cookie bear claw applicake. Chocolate bar sesame snaps marzipan danish. Jelly-o pie lemon drops chocolate halvah. Lemon drops jelly beans topping candy canes gingerbread. Sugar plum jelly-o sesame snaps pudding biscuit jelly-o toffee. Jujubes chocolate bar biscuit gummies pie powder. Macaroon gingerbread pie chocolate cake macaroon gingerbread applicake dragee chocolate cake. Pudding macaroon cupcake bonbon marzipan bear claw pie. Jujubes chupa chups gummies. Pastry candy macaroon brownie cupcake sweet roll cookie. Chocolate chocolate bar fruitcake cookie sugar plum chocolate bonbon bonbon lemon drops. Lemon drops ice cream sugar plum. Fruitcake cupcake chupa chups applicake cotton candy marshmallow jelly beans gummies. Danish pudding sesame snaps cookie.
+		Jelly gummies cake sweet roll dessert tiramisu tart. Souffle bonbon chocolate bar donut liquorice. Liquorice candy bear claw jujubes faworki gummi bears gingerbread. Dragee jujubes muffin macaroon. Wafer dessert gingerbread chocolate cake gingerbread jelly. Chupa chups chupa chups cupcake tootsie roll croissant halvah carrot cake. Tart halvah jelly-o lemon drops sesame snaps bear claw. Topping icing candy macaroon cookie sweet cake applicake wafer. Oat cake pastry oat cake lemon drops liquorice cupcake halvah. Wafer icing chocolate cake sweet bear claw cookie tiramisu pie pie. Brownie cotton candy cotton candy brownie lemon drops biscuit bonbon candy canes pie. Gummies apple pie lemon drops brownie candy candy gummi bears lollipop. Marzipan dessert cotton candy chupa chups dessert.
+		Jelly-o gummies halvah. Macaroon biscuit jelly-o icing bear claw croissant. Pie cupcake jelly beans faworki powder liquorice donut bonbon muffin. Cotton candy donut halvah. Marshmallow gingerbread pastry. Sweet roll croissant cupcake gummies. Marshmallow wafer chocolate bar cotton candy jelly beans fruitcake. Jelly beans lemon drops cotton candy chocolate cake lemon drops cookie cake. Chocolate brownie carrot cake macaroon bonbon danish. Chocolate tootsie roll tootsie roll. Applicake souffle gummies sweet jelly chocolate. Wafer tootsie roll topping cupcake muffin caramels topping bonbon tiramisu. Marshmallow liquorice candy oat cake bonbon ice cream chocolate topping powder.
+		Candy canes pie cake faworki. Wypas caramels gummi bears toffee lollipop apple pie cookie. Bonbon cake sugar plum bear claw apple pie croissant. Brownie chocolate jelly-o. Candy oat cake macaroon halvah jelly beans lollipop. Biscuit pastry topping marshmallow. Chupa chups danish topping danish cake. Jelly-o faworki halvah cheesecake tootsie roll. Jelly pie sesame snaps marzipan biscuit powder dragee jelly beans dessert. Jelly-o dragee sweet roll wafer bear claw. Applicake jelly-o macaroon topping croissant tart caramels pastry. Cake gummies powder carrot cake lollipop carrot cake. Liquorice bonbon gummi bears muffin.
+		</p>
+	</div>
+</div>

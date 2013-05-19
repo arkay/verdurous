@@ -1,0 +1,76 @@
+// Place all the styles related to the Node controller here.
+// They will automatically be included in application.css.
+
+#ap-node-title {
+  color: #fff;
+  font-size: 60px;
+  font-family: "BebasNeue";
+  position: relative;
+  margin-top: -59px;
+  padding: 0px;
+  margin-bottom: 0px;
+  text-shadow: 1px 1px 1px #000;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.ap-node-image img {
+  max-width: 80%;
+  height: auto;
+  padding: 1px;
+  border: 3px solid #777;
+  margin-left: auto; margin-right: auto;
+  display: block;
+}
+
+#ap-node-metadata {
+  font-family: sans-serif;
+  font-size: 12px;
+}
+
+#ap-node-metadata li {
+  list-style-type: none;
+}
+
+#ap-node-metadata a, #ap-node-metadata a:visited {
+  text-decoration: none;
+  color: #55a;
+}
+
+#ap-node-metadata a:hover {
+  text-decoration: none;
+  color: #78b;
+}
+
+#ap-node-metadata-table {
+  margin-top: 5px;
+  margin-left: 8%;
+  border-collapse: collapse;
+  margin-right: 5%
+}
+
+#ap-node-metadata-table tr:first-child {
+  border-top: 1px solid #555;
+}
+
+#ap-node-metadata-table tr {
+  border-bottom: 1px solid #555;
+}
+
+#ap-node-metadata-table td {
+  vertical-align: top;
+}
+
+.ap-node-metadata-key {
+  padding-right: 5%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  max-width: 120px; // Tweak if needed?
+}
+
+.ap-node-metadata-value {
+  float: right;
+  text-align: right;
+}

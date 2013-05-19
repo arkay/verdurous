@@ -2,13 +2,39 @@
 <html>
 <head>
   <title>Verdurous</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
+  <%= stylesheet_link_tag    "application", "jquery-ui-1.10.3.custom.css", :media => "all" %>
+  <%= javascript_include_tag "application", "jquery-1.9.1.min.js", "jquery-ui-1.10.3.custom.min.js" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+<div id="ap-page-all">
+	<div id="ap-page-header">
+		<div class="grid-container">
+			<div class="grid-100">
+				<span id="ap-title"><span class="font-museo">@</span><span class="font-smaller">port</span></span>
+				<div class="clearfix"></div>
+				<div class="grid-20 prefix-80" id="ap-nav-bar">
+						<ul>
+							<li><a href="">home</a></li>
+							<li><a href="">nodes</a></li>
+							<li><a href="">list</a></li>
+							<li><a href="">logoff</a></li>
+						</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="ap-page-separator"></div>
 
-<%= yield %>
+	<div id="ap-page-body">
+	<%= yield %>
+	</div>
 
+	<div id="ap-page-push"></div>
+</div>
+
+<div id="ap-page-footer">
+
+</div>
 </body>
 </html>

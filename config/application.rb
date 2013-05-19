@@ -55,6 +55,13 @@ module Verdurous
 
     # Enable the asset pipeline
     config.assets.enabled = true
+    # Add app/assets/fonts to the assets
+    config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
+    
+    # Precompile font assets
+    config.assets.precompile += %w(.otf .ttf)
+    # Precompile image assets
+    config.assets.precompile += %w(.png) 
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'

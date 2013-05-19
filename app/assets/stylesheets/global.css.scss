@@ -1,0 +1,127 @@
+@CHARSET "UTF-8";
+
+@font-face {
+  font-family: "MuseoSlab";
+  src: asset-url('museo_slab.otf', font);
+}
+
+@font-face {
+  font-family: "WalkwayBold";
+  src: asset-url('Walkway_Bold.ttf', font);
+}
+
+@font-face {
+  font-family: "BebasNeue";
+  src: asset-url('BebasNeue.otf', font);
+}
+
+@font-face {
+  font-family: "Harabara";
+  src: asset-url('Harabara.ttf', font);
+}
+
+// Layout Ids
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+#ap-page-all {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0 auto -133px;
+  background-color: #fff;
+}
+
+#ap-page-header {
+  text-align: right;
+}
+
+#ap-title {
+  font-family: "BebasNeue";
+  color: #fff;
+  font-size: 72px;
+  padding-bottom: 10px;
+  text-shadow: 1px 1px 1px #000;
+}
+
+#ap-nav-bar ul {
+  padding-bottom: 20px;
+  margin: 0;
+}
+
+#ap-nav-bar li {
+  list-style-type: none;
+  padding-right: 4px;
+}
+
+#ap-nav-bar a, #ap-nav-bar a:visited {
+  text-decoration: none;
+  color: #fff;
+  font-size: 24px;
+  font-family: "BebasNeue";
+  text-shadow: 1px 1px 1px #000;
+}
+
+#ap-page-body {
+
+}
+
+#ap-page-body p {
+  font-family: sans-serif;
+}
+
+#ap-page-push {
+  height: 133px;
+}
+
+#ap-page-footer {
+  height: 128px; // Account for 5 px border
+}
+
+#ap-page-footer {
+  width:100%;
+  background-color: #eee;
+  background-image: image-url('stripe_background_opac_50.png');
+  border-top: 5px solid #aef;
+}
+
+// General Purpose Classes
+
+.ap-page-separator {
+  height: 5px;
+  width: 100%;
+  padding: 0px;
+  margin: 0px;
+  background-color: #567;
+  z-index: 10; // Push this to the front!
+}
+
+.font-museo {
+  font-family:"MuseoSlab";
+  font-weight: lighter;
+}
+
+.font-smaller {
+  font-size: smaller;
+}
+
+.colored-header-nav {
+  //background-color: rgba(135, 160, 200, 0.2);
+  background: -webkit-linear-gradient(left,  rgba(249,250,255,0.5) 0%,rgba(142,190,242,1) 100%); /* Chrome10+,Safari5.1+ */
+}
+
+.colored-header-nav-gradient { // Doesn't animate properly
+  background: -moz-linear-gradient(left,  rgba(249,250,255,0.5) 0%, rgba(142,190,242,1) 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(249,250,255,0.5)), color-stop(100%,rgba(142,190,242,1))); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(left,  rgba(249,250,255,0.5) 0%,rgba(142,190,242,1) 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(left,  rgba(249,250,255,0.5) 0%,rgba(142,190,242,1) 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(left,  rgba(249,250,255,0.5) 0%,rgba(142,190,242,1) 100%); /* IE10+ */
+  background: linear-gradient(to right,  rgba(249,250,255,0.5) 0%,rgba(142,190,242,1) 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#80f9faff', endColorstr='#8ebef2',GradientType=1 ); /* IE6-9 */
+  background-repeat: no-repeat;
+  background-position: right;
+}
